@@ -8,6 +8,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+(package-refresh-contents)
+
 
 ;; use-package to simplify the config file
 (unless (package-installed-p 'use-package)
@@ -31,3 +33,12 @@
 
 ;; Disable bell sound
 (setq visible-bell 1)
+
+;; Show icons at the dired mode
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package magit
+  :ensure t)
+
